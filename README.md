@@ -2,7 +2,7 @@
 
 Simple python tool to grab radio stations from radio-browser.info, put them into a menu, and then use your local installation of mpg123 to play the station for you.
 
-Requirements:
+### Requirements:
 
 * Linux (any flavor, but debian based is probably best)
 * Python3
