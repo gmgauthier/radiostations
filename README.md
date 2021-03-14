@@ -74,7 +74,7 @@ Select Option:
 ### CAVEATS
 
 1. This is a VERY ROUGH script. If your search criteria are too broad, you'll get hundreds and hundres of menu items. I set the limit to 9999, and it seems to work ok. But don't push your luck. 
-2. mpg123 and mplayer are primitive at best. Not all the stations on the list will play correctly, without the propery config/plugins. So, just keep trying until you find one that works.
+2. mpg123 and mplayer are primitive at best. Not all the stations on the list will play correctly, without the proper config/plugins. So, just keep trying until you find one that works.
 3. if you supply multiple tags in a comma-separated list, you may unintentionally filter out results. Unfortunately, the api at radio-info is such that the tag list you search for, has to be in precisely the order it is returned from the host. So, for example, if you search for "classical,chicago", your search will filter out WFMT, because their tags are "chicago,classical". So, best to keep your tags to a minimum (meaning 1 lol)
 4. The country search is by country NAME, not CODE. So, "United States" will work, but "US" will not. Likewise for the United Kingdom.
 5. It seems many of the stations put their city in the tag list. So, you can reduce the size of your results by doing something like this: `-c "United States" -t "atlanta"`, which makes more sense for radio stations anyway. Eg:
