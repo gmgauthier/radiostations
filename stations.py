@@ -4,6 +4,7 @@ import json
 import requests
 import secrets
 
+from config import api
 from radiomenu import RadioMenu
 
 
@@ -16,24 +17,12 @@ def nsname(ipaddrs, rectype='A'):
 
 
 def get_host():
-    hosts = ipaddr('all.api.radio-browser.info')
+    hosts = ipaddr(api())
     preferred_host = secrets.choice(hosts)
     return nsname(preferred_host)
 
 
-def get_station_by_name(callsign, host):
-    resp = requests.get(f"https://{host}/json/stations/byname/" + callsign)
-    if resp.status_code == 200:
-        return json.loads(resp.text)
-    else:
-        return [{"response_code": resp.status_code, "reason": resp.reason}]
-
-
 def get_stations(qstring, host):
-    # https://de1.api.radio-browser.info/json/stations/search?name=wfmt&limit=100
-    # https://de1.api.radio-browser.info/json/stations/search?tag=classical&limit=100
-    # https://de1.api.radio-browser.info/json/stations/search?state=Illinois&tag=classical&limit=100
-    # https://de1.api.radio-browser.info/json/stations/search?country=America&state=Illinois&tag=classical&limit=100
     resp = requests.get(f"https://{host}/json/stations/search?{qstring}&limit=100000")
     if resp.status_code == 200:
         return json.loads(resp.text)

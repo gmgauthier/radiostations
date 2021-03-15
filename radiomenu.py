@@ -1,6 +1,8 @@
 from python_console_menu import AbstractMenu, MenuItem
 import subprocess
 
+from config import player, options
+
 
 class RadioMenu(AbstractMenu):
     def __init__(self, station_list=None):
@@ -16,7 +18,7 @@ class RadioMenu(AbstractMenu):
                     station_list[i]["codec"] + " " +
                     station_list[i]["bitrate"] + " " +
                     station_list[i]["url"],
-                    lambda url=station_list[i]["url"]: subprocess.run(["mpv", "--no-video", url])
+                    lambda url=station_list[i]["url"]: subprocess.run([player(), options(), url])
                 )
             )
 
