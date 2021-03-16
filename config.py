@@ -15,3 +15,7 @@ def player():
 def options():
     return config.get('DEFAULT', 'player.options')
 
+
+def maxitems():
+    return int(config.get('DEFAULT', 'menu_items.max'))
+
