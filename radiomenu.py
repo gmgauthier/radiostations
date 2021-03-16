@@ -11,13 +11,13 @@ class RadioMenu(AbstractMenu):
             station_list = []
 
         for i in range(len(station_list)):
-            if i < maxitems():  # The last item is the exit option, so not "<=".
+            if i < maxitems():  # The very first item is the exit option, so not "<=".
                 self.add_menu_item(
                     MenuItem(
                         i,
-                        station_list[i]["name"] + " " +
-                        station_list[i]["codec"] + " " +
-                        station_list[i]["bitrate"] + " " +
+                        "{:<35}".format(station_list[i]["name"][:35]) + " " +  # force 35 character fixed length
+                        "{:<5}".format(station_list[i]["codec"][:5]) + " " +   # force 5 character fixed length
+                        "{:<5}".format(station_list[i]["bitrate"][:5]) + " " +
                         station_list[i]["url"],
                         lambda url=station_list[i]["url"]: subprocess.run([player(), options(), url])
                     )
