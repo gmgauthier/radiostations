@@ -15,7 +15,7 @@ class RadioMenu(AbstractMenu):
                 self.add_menu_item(
                     MenuItem(
                         i,
-                        "{:<35}".format(station_list[i]["name"][:35]) + " " +  # force 35 character fixed length
+                        "{:<30}".format(station_list[i]["name"][:30]) + " " +  # force 35 character fixed length
                         "{:<5}".format(station_list[i]["codec"][:5]) + " " +   # force 5 character fixed length
                         "{:<5}".format(station_list[i]["bitrate"][:5]) + " " +
                         station_list[i]["url"],
