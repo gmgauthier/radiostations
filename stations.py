@@ -12,7 +12,7 @@ def ipaddr(hostname, rectype='A'):
     return DNS.dnslookup(hostname, rectype, 3)
 
 
-def nsname(ipaddrs, rectype='A'):
+def nsname(ipaddrs):
     return DNS.revlookup(ipaddrs, 3)
 
 
